@@ -7,7 +7,7 @@ from django.db import models
 class Category(models.Model):
     title = models.CharField(max_length=200, null=False)
     slug = models.SlugField(unique=True, null=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True) # datas automaticas 
     update_at = models.DateTimeField(auto_now=True)
 
 
