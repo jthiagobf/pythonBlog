@@ -24,6 +24,9 @@ class Post(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
 
+    #aaaaaaaaa
+
+
 
 
 
