@@ -10,6 +10,9 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # datas automaticas
     update_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):   # altera o nome da categoria automaticamente na parte do admin
+        return self.title
+
 
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
@@ -18,15 +21,18 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=False)
     subtitle = models.CharField(max_length=200, null=False)
     description = models.TextField(null=False)
-    image = models.ImageField(upload_to='images/', null=True)
+    image = models.ImageField(upload_to='images/', blank=True)
     text = models.TextField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True) # data automatica
 
+    def __str__(self): # altera o nome dos posts automaticamente na parte do admin
+        return self.title
 
 
 
 
 
 
+#teste teste
 
