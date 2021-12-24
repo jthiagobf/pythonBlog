@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 
@@ -30,9 +31,13 @@ class Post(models.Model):
         return self.title
 
 
+    def image_table(self):
+        if self.image:
+            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+        else:
+            return mark_safe('<p>Sem imagem</p>')
 
 
 
 
-#teste teste
 
