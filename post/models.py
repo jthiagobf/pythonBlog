@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -23,7 +25,7 @@ class Post(models.Model):
     subtitle = models.CharField(max_length=200, null=False)
     description = models.TextField(null=False)
     image = models.ImageField(upload_to='images/', blank=True)
-    text = models.TextField(null=False)
+    text = RichTextUploadingField()
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True) # data automatica
 
