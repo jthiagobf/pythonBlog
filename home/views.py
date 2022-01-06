@@ -19,5 +19,16 @@ def index(request):
 
 
 def blog(request):
-    return render(request, 'pages/blog.html')  # pagina blog
+    post = Post.objects.all()
+    category = Category.objects.all()
+    post_latest = Post.objects.order_by('id')[:3]
+
+    context = {
+        'post': post,
+        'category': category,
+        'post_latest': post_latest,
+
+    }
+
+    return render(request, 'pages/blog.html', context)  # pagina blog
 
