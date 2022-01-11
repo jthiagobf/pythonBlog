@@ -29,7 +29,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True) # data automatica
 
-    def __str__(self): # altera o nome dos posts automaticamente na parte do admin
+    def __str__(self):  # altera o nome dos posts automaticamente na parte do admin
         return self.title
 
 
