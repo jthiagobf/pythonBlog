@@ -43,3 +43,4 @@ class Post(models.Model):
 
 
 
+# models
