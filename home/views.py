@@ -6,7 +6,7 @@ from post.models import Post, Category
 
 
 def index(request):
-    post_random = Post.objects.order_by('?')[:4]  # adiciona fotoa aleatoriamente
+    post_random = Post.objects.order_by('?')[:4]  # adiciona fotos aleatoriamente
     post_latest = Post.objects.order_by('id')[:3]
     category = Category.objects.all()
 
@@ -36,4 +36,10 @@ def blog(request):
     }
 
     return render(request, 'pages/blog.html', context)  # pagina blog
+
+
+def post_detail (request, id, slug):
+    post = Post.objects.get(pk=id)
+    return render(request, 'pages/post_detail.html', {'post':post})
+
 
