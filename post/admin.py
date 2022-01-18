@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 
-from .models import Category, Post
+from .models import Category, Post, Comment
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -18,6 +18,13 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)} #add slug automaticamente
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'status']
+    list_filter = ['status']
+
+
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)
+

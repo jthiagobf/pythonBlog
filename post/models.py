@@ -41,6 +41,25 @@ class Post(models.Model):
 
 
 
+class Comment(models.Model):
+    STATUS = (
+        ('Lido', 'Lido'),
+        ('Não Lido', 'Não Lido'),
+    )
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=False)
+    comment = models.TextField()
+
+    status = models.CharField(choices=STATUS, max_length=10, default='Não Lido')
+
+    crated_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
+
 
 
 # models

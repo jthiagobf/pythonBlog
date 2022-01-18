@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from django.core.paginator import Paginator
 
 # Create your views here.
-from post.models import Post, Category
+from post.models import Post, Category, Comment
 
 
 def index(request):
