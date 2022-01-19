@@ -40,6 +40,7 @@ def blog(request):
 
 def post_detail (request, id, slug):
     post = Post.objects.get(pk=id)
-    return render(request, 'pages/post_detail.html', {'post':post})
+    comments = Comment.objects.filter(post_id=id, status='Lido')
+    return render(request, 'pages/post_detail.html', {'post': post, 'comments': comments})
 
 
