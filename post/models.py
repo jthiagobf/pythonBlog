@@ -63,3 +63,4 @@ class Comment(models.Model):
 
 
 # models
+# cria "modelos" que serão usados no back-end para implementar funcionalidades
