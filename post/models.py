@@ -41,7 +41,7 @@ class Post(models.Model):
 
 
 
-class Comment(models.Model):
+class Comment(models.Model): #comentarios
     STATUS = (
         ('Lido', 'Lido'),
         ('Não Lido', 'Não Lido'),
@@ -64,3 +64,4 @@ class Comment(models.Model):
 
 # models
 # cria "modelos" que serão usados no back-end para implementar funcionalidades
+
