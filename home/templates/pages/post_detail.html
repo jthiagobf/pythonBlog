@@ -24,7 +24,6 @@
                       <ul class="post-info">
                         <li><a href="#">{{post.user.first_name}}</a></li>
                         <li><a href="#">{{post.update_at|date:'d/m/Y'}}</a></li>
-                        <li><a href="#">10 Comments</a></li>
                       </ul>
                       <p>{{post.text|safe}}</p>
                       <div class="post-options">
@@ -50,7 +49,6 @@
                 <div class="col-lg-12">
                   <div class="sidebar-item comments">
                     <div class="sidebar-heading">
-                      <h2>4 comments</h2>
                     </div>
                     {% for item in comments %}
                       <ul>
