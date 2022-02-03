@@ -1,11 +1,10 @@
-
   {% extends 'homebase.html' %}
 
   {% block preloader %} {% include 'preloader.html' %} {% endblock %}
   {% block header %} {% include 'header.html' %} {% endblock %}
   {% block slide %} {% include 'slide.html' %} {% endblock %}
 
-  <div class="blog-posts">
+  <section class="{% block container %} blog-posts {% endblock %}">
     <div class="container">
       <div class="row">
 
@@ -15,5 +14,5 @@
 
       </div>
     </div>
-  </div>
+  </section>
     {% block footer %} {% include 'footer.html' %} {% endblock %}

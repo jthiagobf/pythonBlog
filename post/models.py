@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.safestring import mark_safe
+from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -7,8 +10,15 @@ from django.db import models
 class Category(models.Model):
     title = models.CharField(max_length=200, null=False)
     slug = models.SlugField(unique=True, null=False)
+<<<<<<< HEAD
     created_at = models.DateTimeField(auto_now_add=True) # datas automaticas 
+=======
+    created_at = models.DateTimeField(auto_now_add=True)  # datas automaticas
+>>>>>>> release/1.0.0
     update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):   # altera o nome da categoria automaticamente na parte do admin
+        return self.title
 
 
 class Post(models.Model):
@@ -18,18 +28,50 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=False)
     subtitle = models.CharField(max_length=200, null=False)
     description = models.TextField(null=False)
-    image = models.ImageField(upload_to='images/', null=True)
-    text = models.TextField(null=False)
+    image = models.ImageField(upload_to='images/', blank=True)
+    text = RichTextUploadingField()
     created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateTimeField(auto_now=True) # data automatica
+
+    def __str__(self):  # altera o nome dos posts automaticamente na parte do admin
+        return self.title
 
 
+    def image_table(self):
+        if self.image:
+            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+        else:
+            return mark_safe('<p>Sem imagem</p>')
+
+
+
+class Comment(models.Model): #comentarios
+    STATUS = (
+        ('Lido', 'Lido'),
+        ('Não Lido', 'Não Lido'),
+    )
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=False)
+    comment = models.TextField()
+
+    status = models.CharField(choices=STATUS, max_length=10, default='Não Lido')
+
+    crated_at = models.DateTimeField(auto_now_add=True)
+
+<<<<<<< HEAD
     #aaaaaaaaa
 
 
+=======
+    def __str__(self):
+        return self.name
+>>>>>>> release/1.0.0
 
 
 
 
 
+# models
+# cria "modelos" que serão usados no back-end para implementar funcionalidades
 
