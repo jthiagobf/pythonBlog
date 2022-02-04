@@ -2,7 +2,7 @@
 
 Blog desenvolvido utilizando Python, Django, HTML, CSS(BootStrap), JavaScript, PostgreSQL e Docker
 
-Para executar vá até a pasta raiz, acesse a pasta venv e depois a pasta Scripts e execute o comando:
+Para executar vá até a pasta raiz, acesse a pasta venv e depois a pasta Scripts e execute o seguinte comando para ativar a máquina virtual:
 ````
 activate
 ````
